@@ -8,8 +8,10 @@ computed计算属性函数 return 基于相应数据做计算的值 -->
 如果对象中除了count还有age，但又不想监听age，在watch中再写一个回调函数，不用deep，指出想要监听谁，deep有性能损耗，一般不开启 -->
 <!-- 生命周期函数 创建挂载更新卸载 选项式API->组合式API 引入函数，执行函数传入回调， -->
 
-组合式API父子通信，
-
+<!-- 组合式API父子通信。模版引用，调用ref函数->ref对象，通过ref标识绑定对象，组件挂载完毕后才能获取通过.value。默认情况下在<script setup>语法糖下组件内部的属性和方法不开放给父组件
+访问，可以通过defineExpose编译宏指定哪些属性和方法允许访问。 -->
+<!-- provide和inject，顶层组件向任意的底层组件传递数据和方法，实现跨层组件通信，顶层组件通过provide函数提供数据，底层组件通过inject函数获取数据，传递静态数据，响应式数据传ref对象，方法
+不破坏单向数据流的情况下，在底层修改顶层数据，需要把顶层的修改数据的方法传给底层，谁的数据谁修改。
 <script setup>
   import { ref } from 'vue'
   import { watch } from 'vue'
@@ -25,4 +27,5 @@ computed计算属性函数 return 基于相应数据做计算的值 -->
   <div>
     <button @click="setCount">{{ count }}</button>
   </div>
-</template>
+</template> -->
+
