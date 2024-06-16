@@ -12,8 +12,11 @@ const getList = async () =>{ // 调用接口的函数，用的是axios，同步�
 
 onMounted(() => getList())
 
-// TODO: 删除功能
-
+// TODO: 删除功能，获取当前行的id，通过id调用删除接口，更新最新的列表
+const onDelete = async (id) => {
+  await axios.delete('/del/${id}')
+  getList()
+}
 
 // TODO: 编辑功能
 
@@ -26,9 +29,9 @@ onMounted(() => getList())
       <el-table-column label="姓名" prop="name" width="150"></el-table-column>
       <el-table-column label="籍贯" prop="place"></el-table-column>
       <el-table-column label="操作" width="150">
-        <template #default>
+        <template #default="{ row }">
           <el-button type="primary" link>编辑</el-button>
-          <el-button type="danger" link>删除</el-button>
+          <el-button type="danger" @click="onDelete(row.id)" link>删除</el-button>
         </template>
       </el-table-column>
     </el-table>
