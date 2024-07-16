@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <el-button type="primary">primary</el-button> <!--自动按需引入 -->
+  <router-view />
 </template>
 
 <style scoped>
