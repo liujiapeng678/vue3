@@ -1,18 +1,10 @@
 <script setup>
-import { getCategoryAPI } from '@/apis/layout'
-import { onMounted, ref } from 'vue'
 import { useScroll } from '@vueuse/core'
-
-const categoryList = ref([])
-const getCategory = async () => {
-    const res = await getCategoryAPI()
-    categoryList.value = res.result
-}
-onMounted(() => {
-    getCategory()
-})
-
+import {useCategoryStore} from '@/stores/category'
+//y是解构出页面向下移动多少距离
 const {y} = useScroll(window)
+//使用pinia优化重复请求
+const categoryStore = useCategoryStore()
 </script>
 
 <template>
@@ -24,7 +16,7 @@ const {y} = useScroll(window)
                 <li class="home">
                     <RouterLink to="/">首页</RouterLink>
                 </li>
-                <li class="home" v-for="item in categoryList" :key="item.id">
+                <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
                     <router-link to="/">{{ item.name }}</router-link>
                 </li>
             </ul>
