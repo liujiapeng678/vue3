@@ -2,7 +2,7 @@
 import HomePanel from './HomePanel.vue'
 import {getGoodsAPI} from '@/apis/home'
 import {ref, onMounted} from 'vue'
-import GoodItem from './GoodItem.vue'
+import GoodsItem from './GoodsItem.vue'
 
 const goodsProduct = ref([])
 
@@ -29,8 +29,8 @@ onMounted(() => {
           </strong>
         </RouterLink>
         <ul class="goods-list">
-          <li v-for="good in cate.goods" :key="good.id">
-            <GoodItem :good = good />
+          <li v-for="goods in cate.goods" :key="goods.id">
+            <GoodsItem :goods = goods />
           </li>
         </ul>
       </div>
