@@ -16,7 +16,7 @@ const router = createRouter({
           component:Home
         },
         {
-          path:'category',  // 展示category时，也在 / 里面 / 的内容也会展示
+          path:'category/:id',  // 展示category时，也在 / 里面 / 的内容也会展示
           component:Category
         }
       ]
